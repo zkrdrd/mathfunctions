@@ -11,14 +11,14 @@ import (
 func appendValuesToArray() {
 	mathfunctions.Temp = ""
 	mathfunctions.Numbers = nil
-	mathfunctions.SumNumber, mathfunctions.Maximum, mathfunctions.Minimum, mathfunctions.FindSpace = 0, 0, 0, 0
+	mathfunctions.FindSpace = 0
 	fmt.Print("Введите числа через пробел: ")
 	mathfunctions.GetText.Scan()
 	mathfunctions.Temp = mathfunctions.GetText.Text()
 	if mathfunctions.Temp > "" {
 		for i := 0; i < len(mathfunctions.Temp); i++ {
 			if mathfunctions.Temp[i] == mathfunctions.Space {
-				val, err := strconv.ParseFloat(mathfunctions.Temp[mathfunctions.FindSpace:i], 64)
+				val, err := strconv.ParseInt(mathfunctions.Temp[mathfunctions.FindSpace:i], 10, 64)
 				if err != nil {
 					fmt.Print(err)
 					panic(err)
@@ -26,7 +26,7 @@ func appendValuesToArray() {
 				mathfunctions.Numbers = append(mathfunctions.Numbers, val)
 				mathfunctions.FindSpace = i + 1
 			} else if i+1 == len(mathfunctions.Temp) {
-				val, err := strconv.ParseFloat(mathfunctions.Temp[mathfunctions.FindSpace:i+1], 64)
+				val, err := strconv.ParseInt(mathfunctions.Temp[mathfunctions.FindSpace:i+1], 10, 64)
 				if err != nil {
 					fmt.Print(err)
 					panic(err)
@@ -52,7 +52,7 @@ func ShowMenu() {
 		if mathfunctions.Temp != "" {
 			i, err := strconv.ParseInt(mathfunctions.Temp, 10, 64)
 			if err == nil {
-				mathfunctions.Selecter = int(i)
+				mathfunctions.Selecter = i
 				break
 			} else {
 				fmt.Println("Это должно быть целое число из доступных (1, 2, 3, 0).")
@@ -68,9 +68,9 @@ func ShowMenu() {
 			break
 		}
 		if mathfunctions.Selecter == 1 {
-			mathfunctions.Result = mathfunctions.FingMinNumber(mathfunctions.Numbers...)
+			mathfunctions.Result = mathfunctions.FindMinNumber(mathfunctions.Numbers...)
 		} else if mathfunctions.Selecter == 2 {
-			mathfunctions.Result = mathfunctions.FingMaxNumber(mathfunctions.Numbers...)
+			mathfunctions.Result = mathfunctions.FindMaxNumber(mathfunctions.Numbers...)
 		} else if mathfunctions.Selecter == 3 {
 			mathfunctions.Result = mathfunctions.SumEvenNumber(mathfunctions.Numbers...)
 		} else if mathfunctions.Selecter == 4 {

@@ -2,7 +2,6 @@ package mathfunctions
 
 import (
 	"bufio"
-	"math"
 	"os"
 )
 
@@ -23,21 +22,20 @@ GetText   = сканер
 **
 */
 var (
-	Numbers   []float64
-	SumNumber float64
-	Maximum   float64
-	Minimum   float64
-	Result    float64
+	Numbers   []int64
+	Result    int64
 	Temp      string
-	Selecter  int
+	Selecter  int64
 	FindSpace int
 	GetText   = bufio.NewScanner(os.Stdin)
 )
 
 // сложение четных чисел
-func SumEvenNumber(Numbers ...float64) float64 {
+func SumEvenNumber(Numbers ...int64) int64 {
+	// сумма элементов
+	var SumNumber int64
 	for _, num := range Numbers {
-		if int(math.Round(num))%2 == 0 {
+		if num%2 == 0 {
 			SumNumber += num
 		}
 	}
@@ -45,9 +43,11 @@ func SumEvenNumber(Numbers ...float64) float64 {
 }
 
 // сложение нечетных чисел math.Mod(num, 2)
-func SumNoEvenNumber(Numbers ...float64) float64 {
+func SumNoEvenNumber(Numbers ...int64) int64 {
+	// сумма элементов
+	var SumNumber int64
 	for _, num := range Numbers {
-		if int(math.Round(num))%2 != 0 {
+		if num%2 != 0 {
 			SumNumber += num
 		}
 	}
@@ -55,7 +55,9 @@ func SumNoEvenNumber(Numbers ...float64) float64 {
 }
 
 // поиск максимального числа
-func FingMaxNumber(Numbers ...float64) float64 {
+func FindMaxNumber(Numbers ...int64) int64 {
+	// максимальное число
+	var Maximum int64
 	for _, num := range Numbers {
 		if Maximum < num {
 			Maximum = num
@@ -65,7 +67,9 @@ func FingMaxNumber(Numbers ...float64) float64 {
 }
 
 // поиск минимального числа
-func FingMinNumber(Numbers ...float64) float64 {
+func FindMinNumber(Numbers ...int64) int64 {
+	// минимальное число
+	var Minimum int64
 	for id, num := range Numbers {
 		if Minimum > num || id == 0 {
 			Minimum = num

@@ -7,6 +7,6 @@ import (
 
 func main() {
 	//cli.ShowMenu()
-	c := mathfunctions.SumEvenNumber(2, 4, 6, 8, 10)
+	c := mathfunctions.FindMaxNumber(0, 1, 2, 3, 2, 1, 2, 3, 1, 2)
 	fmt.Print(c)
 }
