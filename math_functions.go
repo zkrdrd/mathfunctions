@@ -1,34 +1,7 @@
 package mathfunctions
 
-import (
-	"bufio"
-	"os"
-)
-
-// ascii byte space
-const Space byte = 32
-
-/*
-**
-Numbers   = массив чисел
-SumNumber = сумма чисел
-Maximum   = минимальное значение
-Minimum   = максимальное значение
-Result	  = запись результатов работы функции
-Temp      = временная переменная
-Selecter  = пункт меню выбора
-FindSpace = поиск пробела
-GetText   = сканер
-**
-*/
-var (
-	Numbers   []int64
-	Result    int64
-	Temp      string
-	Selecter  int64
-	FindSpace int
-	GetText   = bufio.NewScanner(os.Stdin)
-)
+// массив чисел
+var Numbers []int64
 
 // сложение четных чисел
 func SumEvenNumber(Numbers ...int64) int64 {

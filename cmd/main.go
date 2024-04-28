@@ -1,12 +1,7 @@
 package main
 
-import (
-	"fmt"
-	"mathfunctions"
-)
+import "mathfunctions/cmd/cli"
 
 func main() {
-	//cli.ShowMenu()
-	c := mathfunctions.FindMaxNumber(0, 1, 2, 3, 2, 1, 2, 3, 1, 2)
-	fmt.Print(c)
+	cli.ShowMenu()
 }
